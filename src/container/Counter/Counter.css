@@ -1,9 +1,10 @@
 .display_block {
     border: 1px solid black;
-    color: wheat;
+    color: #1914f5;
     width: 300px;
     text-align: center;
     margin: 0 auto;
+    height: 100px;
 }
 
 .enter_block {
