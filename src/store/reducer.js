@@ -12,15 +12,16 @@ const initialState = {
     zero: 0,
     back: "<",
     enter: "ENT",
-    array_numbers: [1, 2],
-    comparison: false
+    array_numbers: [1, 2, 3, 4],
+    comparison: false,
 };
 
 const reducer = (state = initialState, action) => {
-
     if (action.type === 'ENTER') {
         let Array = state.array_numbers;
-        Array.push(action.value);
+        if (Array.length !== 4){
+            Array.push(action.value);
+        }
         return {array_numbers: Array};
     }
     if (action.type === 'DELETE') {
@@ -29,11 +30,11 @@ const reducer = (state = initialState, action) => {
         return {array_numbers: Array};
     }
     if (action.type === 'CHECK') {
+        console.log(state.array_numbers);
+        console.log(state.password);
         let compare = JSON.stringify(state.array_numbers) === JSON.stringify(state.password);
+        console.log(compare);
         return {comparison: compare};
-    }
-    if (action.type === 'SUBTRACT') {
-        return {counter: state.counter - action.value};
     }
     return state;
 };
