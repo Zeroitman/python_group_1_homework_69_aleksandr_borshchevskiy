@@ -1,0 +1,26 @@
+.display_block {
+    border: 1px solid black;
+    color: wheat;
+    width: 300px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.enter_block {
+    border: 1px solid black;
+    color: wheat;
+    width: 300px;
+    margin: 0 auto;
+    background: cornsilk;
+}
+
+.block {
+    margin: 4px;
+    border: 1px solid #0f0e63;
+    color: #040303;
+    width: 91px;
+    height: 50px;
+    text-align: center;
+    display: inline-block;
+}
+
