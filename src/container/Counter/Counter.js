@@ -4,21 +4,19 @@ import {connect} from "react-redux";
 
 class Counter extends Component {
     render() {
-        // console.log(this.props.comparison);
-
-
-        // console.log(this.props.password);
-        // function inStars(props) {
-        // let in_staar = props.array_numbers;
         let inStar = this.props.array_numbers;
         inStar = inStar.replace(/\d/g, '*');
-        // console.log(this.props.array_numbers);
-        // console.log(inStar);
         return (
             <div className="mt-5">
                 <div className="display_block">
-                    {(this.props.array_numbers.length === 0) ? <div className="mt-3">Введите пароль</div> :
-                        <h2 className="mt-3">{inStar}</h2>
+                    {(this.props.array_numbers.length === 0) ? <div className="mt-2">Введите пароль</div> :
+                        <h3 className="mt-2">{inStar}</h3>
+                    }
+                    {(this.props.comparison_access === true) ? <div className="bg-success">Доступ разрешен</div> :
+                            null
+                    }
+                    {(this.props.comparison_denied === true) ? <div className="bg-danger">Доступ закрыт</div> :
+                            null
                     }
                 </div>
                 <div className="enter_block mt-1">
@@ -44,26 +42,16 @@ const
     mapStateToProps = state => {
         function inStr() {
             let in_str = state.array_numbers;
-            // let d = in_str.join('');
-            // console.log(d);
-            return in_str;
-
+            let d = in_str.join('');
+            return d;
         }
 
-        function inStrPassword() {
-            let in_star = state.password;
-            console.log(in_star);
-            // let d = in_star.join('');
-            // console.log(d);
-            // return d;
-            return in_star;
-        }
 
         return {
             array_numbers: inStr(),
-            password: inStrPassword(),
-            // password: state.password,
-            comparison: state.comparison,
+            password: state.password,
+            comparison_access: state.comparison_access,
+            comparison_denied: state.comparison_denied,
         };
     };
 
@@ -83,10 +71,5 @@ const
     };
 
 
-export default connect(mapStateToProps, mapDispatchToProps)
-
-(
-    Counter
-)
-;
+export default connect(mapStateToProps, mapDispatchToProps)(Counter);
 
